@@ -5,9 +5,16 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
+function removeNonAlphaNumeric(str) {
+	return str.replace(/[^a-z0-9]/gi, '');
+}
 
 function isPalindrome(str) {
-  return true;
+	let newStr = removeNonAlphaNumeric(str).toLowerCase();
+	for (let i = 0; i < (newStr.length)/2; ++i) {
+		if (newStr[i] !== newStr[newStr.length - i - 1]) return false;
+	}
+	return true;
 }
 
 module.exports = isPalindrome;
